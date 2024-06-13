@@ -1,5 +1,6 @@
 package com.assignment.presentation.activity.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.WindowManager
@@ -14,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.assignment.R
 import com.assignment.arch.ObserverContract
 import com.assignment.presentation.control.loader.ProgressHandler
+import com.assignment.presentation.utils.LocaleHelper
 import com.assignment.presentation.viewmodel.SharedViewModel
 import com.assignment.presentation.viewmodel.base.BaseViewModel
 import com.domain.entity.ErrorEntity
@@ -51,6 +53,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        LocaleHelper.getCurrentLanguage(this)?.let { setUpLocale(it, false) }
         binding = DataBindingUtil.setContentView(this, layoutId)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this, viewModelFactory)[classViewModel]
@@ -97,9 +100,6 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         return super.onKeyUp(keyCode, event)
     }
 
-    /**
-     * Showing progress bar over screen
-     */
     fun showLoading(it: Boolean?) {
         it?.let { disableTouch ->
             if (disableTouch) {
@@ -128,6 +128,19 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         }
     }
 
+    fun setUpLocale(lngCode: String, shouldNotify: Boolean = true): Context? {
+        val currentLanguage = LocaleHelper.getCurrentLanguage(this)
+        if (!currentLanguage.equals(lngCode, true)) {
+            val newLocaleContext = LocaleHelper.setNewLocale(this, lngCode)
+            if (shouldNotify) {
+                LocaleHelper.notifyLanguageChange(this)
+            } else {
+                return newLocaleContext
+            }
+        }
+        return null
+    }
+
     override fun onStop() {
         super.onStop()
 
@@ -135,6 +148,10 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         viewModel.errorEvent.removeObservers(this)
 
         observerContract?.removeObservers()
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(LocaleHelper.setLocale(base))
     }
 
     protected fun getViewBinding() = binding

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EITC du Assignment</string>
+    <string name="app_name" translatable="false">EITC du Assignment</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -8,4 +8,6 @@
     <string name="error">Error</string>
     <string name="okay">Okay</string>
     <string name="post_has_been_marked_as_favorite">Post has been marked as favorite.</string>
+    <string name="post_has_been_removed_from_favorite">Post has been removed from favorite.</string>
+    <string name="change_language">Change language</string>
 </resources>

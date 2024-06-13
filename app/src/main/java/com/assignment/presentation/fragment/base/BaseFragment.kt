@@ -93,6 +93,10 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
         onViewInitialized()
     }
 
+    fun setAppLocale(lngCode: String, shouldNotify: Boolean = true): Context? {
+        return (activity as? BaseActivity<*, *>)?.setUpLocale(lngCode, shouldNotify)
+    }
+
     override fun onResume() {
         super.onResume()
 

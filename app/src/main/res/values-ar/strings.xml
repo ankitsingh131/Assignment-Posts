@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EITC du Assignment</string>
+    <string name="email">بريد إلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="posts">المشاركات</string>
+    <string name="favorites">المفضلة</string>
+    <string name="error">خطأ</string>
+    <string name="okay">موافق</string>
+    <string name="post_has_been_marked_as_favorite">تم وضع المنشور بالمفضلة.</string>
+    <string name="post_has_been_removed_from_favorite">تم إزالة المنشور من المفضلة.</string>
+    <string name="change_language">تغيير اللغة</string>
+</resources>

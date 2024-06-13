@@ -33,7 +33,9 @@ class PostsFragment : BaseFragment<PostsFragmentBinding, PostsViewModel>(), Obse
 
         viewModel.updateFavoriteEvent.observe(viewLifecycleOwner) {
             val message =
-                if (it.favorite) getString(R.string.post_has_been_marked_as_favorite) else "Post has been removed from favorite."
+                if (it.favorite) getString(R.string.post_has_been_marked_as_favorite) else getString(
+                    R.string.post_has_been_removed_from_favorite
+                )
             Snackbar.make(getViewBinding().recyclerViewPosts, message, Snackbar.LENGTH_SHORT).show()
         }
     }
