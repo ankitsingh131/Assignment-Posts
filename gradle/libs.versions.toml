@@ -1,0 +1,81 @@
+[versions]
+agp = "8.3.2"
+kotlin = "1.9.23"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.9.0"
+constraintlayout = "2.1.4"
+loggingInterceptor = "5.0.0-alpha.14"
+converterGson = "2.11.0"
+adapterRxjava3 = "2.11.0"
+retrofit = "2.11.0"
+gson = "2.11.0"
+dagger = "2.51.1"
+daggerCompiler = "2.51.1"
+rxjava = "3.1.8"
+rxandroid = "3.0.2"
+glide = "5.0.0-rc01"
+compiler = "5.0.0-rc01"
+lifecycleViewmodelKtx = "2.8.1"
+lifecycleLivedataKtx = "2.8.1"
+mockitoCore = "5.12.0"
+jetbrainsKotlinJvm = "1.9.0"
+javaxInject = "1"
+roomRuntime = "2.6.1"
+roomKtx = "2.6.1"
+googleDevtoolsKsp = "1.9.23-1.0.20"
+daggerAndroid = "2.51.1"
+roomRxjava3 = "2.6.1"
+daggerAndroidProcessor = "2.51.1"
+kotlinKapt = "2.0.0"
+bindingcollectionadapterKtx = "4.0.0"
+bindingcollectionadapterRecyclerview = "4.0.0"
+bindingcollectionadapterViewpager2 = "4.0.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "converterGson" }
+adapter-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "adapterRxjava3" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerCompiler" }
+rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava" }
+rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "compiler" }
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
+javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+dagger-android = { group = "com.google.dagger", name = "dagger-android", version.ref = "daggerAndroid" }
+dagger-android-support = { group = "com.google.dagger", name = "dagger-android-support", version.ref = "daggerAndroid" }
+androidx-room-rxjava3 = { group = "androidx.room", name = "room-rxjava3", version.ref = "roomRxjava3" }
+dagger-android-processor = { group = "com.google.dagger", name = "dagger-android-processor", version.ref = "daggerAndroidProcessor" }
+bindingcollectionadapter-ktx = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-ktx", version.ref = "bindingcollectionadapterKtx" }
+bindingcollectionadapter-recyclerview = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-recyclerview", version.ref = "bindingcollectionadapterRecyclerview" }
+bindingcollectionadapter-viewpager2 = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-viewpager2", version.ref = "bindingcollectionadapterViewpager2" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+googleDevtoolsKsp = { id = "com.google.devtools.ksp", version.ref = "googleDevtoolsKsp" }
+kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinKapt" }
+

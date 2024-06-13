@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">EITC du Assignment</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="posts">Posts</string>
+    <string name="favorites">Favorites</string>
+    <string name="error">Error</string>
+    <string name="okay">Okay</string>
+    <string name="post_has_been_marked_as_favorite">Post has been marked as favorite.</string>
+</resources>
