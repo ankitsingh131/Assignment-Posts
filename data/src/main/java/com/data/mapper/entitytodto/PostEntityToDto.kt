@@ -10,5 +10,11 @@ import com.domain.entity.response.PostEntity
  **/
 
 fun PostEntity.toDto(): PostDto {
-    return PostDto(body = this.body, id = this.id, title = this.title, userId = this.userId)
+    return PostDto(
+        body = this.body,
+        id = this.id,
+        title = this.title,
+        userId = this.userId,
+        favorite = this.favorite
+    )
 }

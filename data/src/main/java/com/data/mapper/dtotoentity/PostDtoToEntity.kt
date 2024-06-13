@@ -10,7 +10,13 @@ import com.domain.entity.response.PostEntity
  **/
 
 fun PostDto?.toEntity(): PostEntity {
-    return PostEntity(body = this?.body, id = this?.id, title = this?.title, userId = this?.userId)
+    return PostEntity(
+        body = this?.body,
+        id = this?.id,
+        title = this?.title,
+        userId = this?.userId,
+        favorite = this?.favorite ?: false
+    )
 }
 
 fun List<PostDto>.map(): List<PostEntity> {
