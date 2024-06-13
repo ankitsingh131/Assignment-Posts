@@ -14,7 +14,6 @@ import com.assignment.di.module.OkHttpClientModule
 import com.assignment.di.module.RemoteDataSourceModule
 import com.assignment.di.module.RepositoryModule
 import com.assignment.di.module.ResourceModule
-import com.assignment.di.module.UseCaseModule
 import com.assignment.di.module.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
@@ -30,7 +29,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [AndroidInjectionModule::class, NetworkModule::class, ApiModule::class,
-        RepositoryModule::class, UseCaseModule::class, OkHttpClientModule::class,
+        RepositoryModule::class, OkHttpClientModule::class,
         InterceptorModule::class, ActivityModule::class, FragmentModule::class,
         ViewModelModule::class, ResourceModule::class, GsonModule::class,
         DatabaseModule::class, LocalDataSourceModule::class, RemoteDataSourceModule::class]

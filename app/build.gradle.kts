@@ -38,6 +38,9 @@ android {
         dataBinding = true
         buildConfig = true
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -61,6 +64,7 @@ dependencies {
     implementation(libs.bindingcollectionadapter.ktx)
     implementation(libs.bindingcollectionadapter.recyclerview)
     implementation(libs.bindingcollectionadapter.viewpager2)
+    testImplementation(libs.androidx.core.testing)
     kapt(libs.dagger.android.processor)
     kapt(libs.dagger.compiler)
     implementation(libs.rxjava)
@@ -74,6 +78,9 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
+    testImplementation(libs.mockwebserver)
+    androidTestImplementation(libs.mockito.android)
+    testImplementation(libs.mockito.inline)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

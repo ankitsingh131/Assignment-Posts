@@ -47,13 +47,12 @@ class PostsViewModel @Inject constructor(
         }.track()
     }
 
-    private fun updateFavorite(post: PostEntity) {
+    fun updateFavorite(post: PostEntity) {
         post.favorite = !post.favorite
         showLoading(true)
         updateFavoriteUseCase.execute(post).subscribe {
             showLoading(false)
             updateFavoriteEvent.value = post
-            sharedViewModel.fetchFavoritePosts.call()
         }.track()
     }
 }

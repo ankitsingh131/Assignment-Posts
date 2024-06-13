@@ -32,6 +32,8 @@ class PostsFragment : BaseFragment<PostsFragmentBinding, PostsViewModel>(), Obse
         super.observeNavigationEvent()
 
         viewModel.updateFavoriteEvent.observe(viewLifecycleOwner) {
+            viewModel.sharedViewModel.fetchFavoritePosts.call()
+
             val message =
                 if (it.favorite) getString(R.string.post_has_been_marked_as_favorite) else getString(
                     R.string.post_has_been_removed_from_favorite
