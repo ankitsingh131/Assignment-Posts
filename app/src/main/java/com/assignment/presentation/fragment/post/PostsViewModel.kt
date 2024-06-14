@@ -24,7 +24,7 @@ class PostsViewModel @Inject constructor(
 
     val posts: ObservableArrayList<PostEntity> = ObservableArrayList()
     val itemBinding =
-        ItemBinding.of<PostEntity> (BR.item, R.layout.item_post)
+        ItemBinding.of<PostEntity>(BR.item, R.layout.item_post)
             .bindExtra(BR.itemClickListener, object : OnItemClickListener<PostEntity> {
                 override fun onItemClicked(item: PostEntity) {
                     updateFavorite(item)
@@ -50,9 +50,11 @@ class PostsViewModel @Inject constructor(
     fun updateFavorite(post: PostEntity) {
         post.favorite = !post.favorite
         showLoading(true)
-        updateFavoriteUseCase.execute(post).subscribe {
+        updateFavoriteUseCase.execute(post).subscribe({
             showLoading(false)
             updateFavoriteEvent.value = post
-        }.track()
+        }, {
+            showLoading(false)
+        }).track()
     }
 }

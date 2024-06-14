@@ -2,6 +2,8 @@ package com.assignment.presentation.fragment.post
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.assignment.BaseUnitTest
+import com.data.constant.NetworkConstants
+import com.domain.entity.ErrorEntity
 import com.domain.entity.response.PostEntity
 import com.domain.result.ResultState
 import com.domain.usecase.post.GetPostUseCase
@@ -44,7 +46,7 @@ class PostsViewModelTest : BaseUnitTest() {
     }
 
     @Test
-    fun getPostList() {
+    fun getPostListSuccessTest() {
         val postEntities = listOf(PostEntity("body", 1, "title", 1))
         val mockResponse = MockResponse()
             .setBody("[{\"body\":\"body\", \"id\":1, \"title\":\"title\", \"userId\":1}]")
@@ -62,7 +64,20 @@ class PostsViewModelTest : BaseUnitTest() {
     }
 
     @Test
-    fun updateFavorite() {
+    fun getPostListFailureTest() {
+        val error = ErrorEntity(NetworkConstants.UNEXPECTED_ERROR_CODE, NetworkConstants.UNEXPECTED_ERROR_MESSAGE)
+
+        `when`(getPostUseCase.execute(null)).thenReturn(Single.just(ResultState.Error(error)))
+
+        viewModel.getPostList()
+
+        testScheduler.advanceTimeBy(1, TimeUnit.SECONDS)
+
+        assert(viewModel.posts.isEmpty())
+    }
+
+    @Test
+    fun updateFavoriteSuccessTest() {
         val postEntity = PostEntity("body", 1, "title", 1, false)
 
         `when`(updateFavoriteUseCase.execute(postEntity)).thenReturn(Completable.complete())
@@ -75,6 +90,23 @@ class PostsViewModelTest : BaseUnitTest() {
 
         viewModel.updateFavorite(postEntity)
 
+        assert(viewModel.updateFavoriteEvent.value != null)
+        Assert.assertFalse(viewModel.loadingEvent.value!!)
+    }
+
+    @Test
+    fun updateFavoriteFailureTest() {
+        // Given
+        val post = PostEntity("body", 1, "title", 1)
+        val error = Throwable("Update failed")
+        `when`(updateFavoriteUseCase.execute(post)).thenReturn(Completable.error(error))
+
+        // When
+        viewModel.updateFavorite(post)
+        testScheduler.triggerActions()
+
+        // Then
+        assert(viewModel.updateFavoriteEvent.value == null)
         Assert.assertFalse(viewModel.loadingEvent.value!!)
     }
 }
