@@ -14,9 +14,6 @@ import okhttp3.mockwebserver.MockResponse
 import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.Mockito.verify
 import org.mockito.Mockito.`when`
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -65,7 +62,10 @@ class PostsViewModelTest : BaseUnitTest() {
 
     @Test
     fun getPostListFailureTest() {
-        val error = ErrorEntity(NetworkConstants.UNEXPECTED_ERROR_CODE, NetworkConstants.UNEXPECTED_ERROR_MESSAGE)
+        val error = ErrorEntity(
+            NetworkConstants.UNEXPECTED_ERROR_CODE,
+            NetworkConstants.UNEXPECTED_ERROR_MESSAGE
+        )
 
         `when`(getPostUseCase.execute(null)).thenReturn(Single.just(ResultState.Error(error)))
 

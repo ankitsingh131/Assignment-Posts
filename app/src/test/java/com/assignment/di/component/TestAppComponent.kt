@@ -12,6 +12,8 @@ import com.assignment.di.module.TestRepositoryModule
 import com.assignment.di.module.TestResourceModule
 import com.assignment.di.module.TestUseCaseModule
 import com.assignment.di.module.TestViewModelModule
+import com.assignment.presentation.fragment.favorite.FavoritesViewModelTest
+import com.assignment.presentation.fragment.login.LoginViewModelTest
 import com.assignment.presentation.fragment.post.PostsViewModelTest
 import dagger.BindsInstance
 import dagger.Component
@@ -37,6 +39,8 @@ import javax.inject.Singleton
 interface TestAppComponent : AppComponent {
 
     fun inject(postsViewModelTest: PostsViewModelTest)
+    fun inject(loginViewModelTest: LoginViewModelTest)
+    fun inject(favoritesViewModelTest: FavoritesViewModelTest)
 
     @Component.Factory
     interface Factory {

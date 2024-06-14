@@ -21,10 +21,6 @@ class FavoritesViewModel @Inject constructor(private val getFavoritePostUseCase:
     val itemBinding =
         ItemBinding.of<PostEntity>(BR.item, R.layout.item_post)
 
-    init {
-        getFavoritePostList()
-    }
-
     fun getFavoritePostList() {
         getFavoritePostUseCase.execute(null).subscribe {  result ->
             showLoading(false)

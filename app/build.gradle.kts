@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.bindingcollectionadapter.recyclerview)
     implementation(libs.bindingcollectionadapter.viewpager2)
     testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.mockito.kotlin)
     kapt(libs.dagger.android.processor)
     kapt(libs.dagger.compiler)
     implementation(libs.rxjava)
