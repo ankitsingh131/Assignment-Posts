@@ -59,8 +59,6 @@ dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" 
 dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerCompiler" }
 rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjava" }
 rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "compiler" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoCore" }
@@ -74,7 +72,6 @@ androidx-room-rxjava3 = { group = "androidx.room", name = "room-rxjava3", versio
 dagger-android-processor = { group = "com.google.dagger", name = "dagger-android-processor", version.ref = "daggerAndroidProcessor" }
 bindingcollectionadapter-ktx = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-ktx", version.ref = "bindingcollectionadapterKtx" }
 bindingcollectionadapter-recyclerview = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-recyclerview", version.ref = "bindingcollectionadapterRecyclerview" }
-bindingcollectionadapter-viewpager2 = { group = "me.tatarka.bindingcollectionadapter2", name = "bindingcollectionadapter-viewpager2", version.ref = "bindingcollectionadapterViewpager2" }
 mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
 mockito-android = { group = "org.mockito", name = "mockito-android", version.ref = "mockitoAndroid" }
 mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockitoInline" }
