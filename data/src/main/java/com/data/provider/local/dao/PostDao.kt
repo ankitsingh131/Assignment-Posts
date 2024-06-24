@@ -20,10 +20,10 @@ import io.reactivex.rxjava3.core.Single
 @Dao
 interface PostDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertPost(post: PostDto): Completable
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllPosts(posts: List<PostDto>): Completable
 
     @Query("SELECT * FROM posts")

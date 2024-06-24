@@ -50,6 +50,16 @@ open class BaseViewModel : ViewModel() {
                 onSuccess(data)
             }
 
+            is ResultState.SuccessWithLocalData -> {
+                onSuccess(data)
+
+                //Handle error if any like Let user know that these posts are showing from Local Db.
+                error?.let { err ->
+                    onError?.let { onError(err) }
+                        ?: setError(err)
+                }
+            }
+
             is ResultState.Error -> {
                 onError?.let { onError(error) }
                     ?: setError(error)

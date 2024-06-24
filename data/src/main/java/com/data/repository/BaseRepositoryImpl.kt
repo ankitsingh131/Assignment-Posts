@@ -5,6 +5,7 @@ import com.domain.entity.ErrorEntity
 import com.domain.repository.BaseRepository
 import com.domain.result.ResultState
 import java.io.IOException
+import java.net.UnknownHostException
 
 /**
  * Author: Ankit Singh
@@ -15,6 +16,7 @@ open class BaseRepositoryImpl : BaseRepository {
 
     internal fun handleError(throwable: Throwable): ErrorEntity {
         return when (throwable) {
+            is UnknownHostException,
             is IOException -> {
                 ErrorEntity(
                     NetworkConstants.NO_INTERNET_ERROR_CODE,

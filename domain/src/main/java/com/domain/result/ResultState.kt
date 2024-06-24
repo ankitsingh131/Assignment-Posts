@@ -13,4 +13,6 @@ sealed class ResultState<T> {
 
     data class Success<T>(val data: T) : ResultState<T>()
 
+    data class SuccessWithLocalData<T>(val data: T, val error: ErrorEntity? = null) : ResultState<T>()
+
 }

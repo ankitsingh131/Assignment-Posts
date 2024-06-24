@@ -16,9 +16,11 @@ import com.assignment.R
 import com.assignment.arch.ObserverContract
 import com.assignment.presentation.control.loader.ProgressHandler
 import com.assignment.presentation.utils.LocaleHelper
+import com.assignment.presentation.utils.safeGet
 import com.assignment.presentation.viewmodel.SharedViewModel
 import com.assignment.presentation.viewmodel.base.BaseViewModel
 import com.domain.entity.ErrorEntity
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -119,12 +121,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
 
     fun showError(error: ErrorEntity?) {
         error?.let {
-            AlertDialog.Builder(this)
-                .setTitle(R.string.error)
-                .setMessage(it.errorMessage)
-                .setPositiveButton(R.string.okay) { dialog, _ ->
-                    dialog.dismiss()
-                }.show()
+            Snackbar.make(getViewBinding().root, it.errorMessage.safeGet(), Snackbar.LENGTH_SHORT).show()
         }
     }
 

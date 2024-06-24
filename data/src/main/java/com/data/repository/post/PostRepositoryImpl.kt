@@ -26,20 +26,28 @@ class PostRepositoryImpl(
     override fun getPosts(): Single<ResultState<List<PostEntity>>> {
         return remoteDataSource.getPosts()
             .flatMap { remotePosts ->
-                localDataSource.deletePosts()
-                    .andThen(localDataSource.savePosts(remotePosts))
+                localDataSource.savePosts(remotePosts)
                     .andThen(Single.just(remotePosts))
-            }
-            .onErrorResumeNext {
-                localDataSource.getPosts()
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .map<ResultState<List<PostEntity>>> { postDtos ->
                 ResultState.Success(postDtos.map())
             }
-            .onErrorReturn {
-                ResultState.Error(handleError(it))
+            .onErrorResumeNext { error ->
+                localDataSource.getPosts()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .map { localPosts ->
+                        if (localPosts.isNotEmpty()) {
+                            ResultState.SuccessWithLocalData(localPosts.map(), handleError(error))
+                        } else {
+                            ResultState.Error(handleError(error))
+                        }
+                    }
+                    .onErrorReturn {
+                        ResultState.Error(handleError(error))
+                    }
             }
     }
 

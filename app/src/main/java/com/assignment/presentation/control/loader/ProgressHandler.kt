@@ -3,7 +3,10 @@ package com.assignment.presentation.control.loader
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.assignment.R
+import com.assignment.databinding.LayoutInActivityProgressBarBinding
 import com.assignment.presentation.activity.base.BaseActivity
 
 class ProgressHandler(
@@ -16,15 +19,15 @@ class ProgressHandler(
     init {
         val viewGroup: ViewGroup =
             activity.findViewById<View>(android.R.id.content).rootView as ViewGroup
-        val view: View =
-            activity.layoutInflater.inflate(
+        val binding: LayoutInActivityProgressBarBinding =
+            DataBindingUtil.inflate(
+                activity.layoutInflater,
                 R.layout.layout_in_activity_progress_bar,
                 viewGroup,
                 false
             )
-        clContainerProgressBar = view.findViewById(R.id.clContainerProgressBar)
-        viewGroup.addView(view)
-        hide()
+        clContainerProgressBar = binding.clContainerProgressBar
+        viewGroup.addView(binding.root)
     }
 
     fun isCancelable(): Boolean = cancelable
